@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import Logo from '../components/Logo';
 
 const FIREBASE_ERRORS = {
   'auth/user-not-found': 'Nenhuma conta encontrada com este e-mail.',
@@ -56,10 +57,7 @@ export default function ForgotPasswordPage() {
       <div style={styles.card}>
         <div style={styles.logoWrap}>
           <div style={styles.logoIcon}>
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
+            <Logo size={28} strokeColor="white" />
           </div>
         </div>
 

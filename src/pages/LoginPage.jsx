@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import Logo from '../components/Logo';
 
 const FIREBASE_ERRORS = {
   'auth/user-not-found': 'Nenhuma conta encontrada com este e-mail.',
@@ -60,12 +61,7 @@ export default function LoginPage() {
         {/* Logo / Ícone */}
         <div style={styles.logoWrap}>
           <div style={styles.logoIcon}>
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-            </svg>
+            <Logo size={28} strokeColor="white" />
           </div>
         </div>
 

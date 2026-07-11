@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import Logo from '../components/Logo';
 
 const FIREBASE_ERRORS = {
   'auth/email-already-in-use': 'Este e-mail já está cadastrado. Tente fazer login.',
@@ -71,12 +72,7 @@ export default function RegisterPage() {
       <div style={styles.card}>
         <div style={styles.logoWrap}>
           <div style={styles.logoIcon}>
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <line x1="19" y1="8" x2="19" y2="14" />
-              <line x1="22" y1="11" x2="16" y2="11" />
-            </svg>
+            <Logo size={28} strokeColor="white" />
           </div>
         </div>
 
