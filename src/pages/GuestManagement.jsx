@@ -183,47 +183,49 @@ export default function GuestManagement() {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {newMembers.map((member, index) => (
-                <div key={index} style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-                  <input 
-                    type="text" 
-                    value={member.name} 
-                    onChange={e => handleMemberChange(index, 'name', e.target.value)} 
-                    placeholder="Nome do convidado" 
-                    className="form-input"
-                    style={{ flex: 1, background: 'var(--surface)' }}
-                    required 
-                  />
-                  <select 
-                    value={member.type} 
-                    onChange={e => handleMemberChange(index, 'type', e.target.value)}
-                    className="form-select"
-                    style={{ width: '220px', background: 'var(--surface)' }}
-                    required
-                  >
-                    <option value="" disabled>Selecione...</option>
-                    {activeCategories.map(c => (
-                      <option key={c.id} value={c.id}>{c.label}</option>
-                    ))}
-                  </select>
-                  {newMembers.length > 1 && (
-                    <button 
-                      type="button" 
-                      onClick={() => handleRemoveMember(index)} 
-                      style={{ 
-                        color: 'var(--danger)', 
-                        background: 'transparent', 
-                        border: 'none', 
-                        cursor: 'pointer',
-                        padding: '0.5rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}
-                      title="Remover membro"
-                    >
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                    </button>
-                  )}
+                <div key={index} className="member-card">
+                  <div className="member-card-header">
+                    <span className="member-card-title">Membro #{index + 1}</span>
+                    {newMembers.length > 1 && (
+                      <button 
+                        type="button" 
+                        onClick={() => handleRemoveMember(index)} 
+                        className="member-remove-btn"
+                        title="Remover membro"
+                      >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                      </button>
+                    )}
+                  </div>
+                  
+                  <div className="member-card-fields">
+                    <div className="member-field-group">
+                      <label className="member-field-label">Nome do Convidado</label>
+                      <input 
+                        type="text" 
+                        value={member.name} 
+                        onChange={e => handleMemberChange(index, 'name', e.target.value)} 
+                        placeholder="Nome do convidado" 
+                        className="form-input"
+                        required 
+                      />
+                    </div>
+                    
+                    <div className="member-field-group">
+                      <label className="member-field-label">Tipo de Convidado</label>
+                      <select 
+                        value={member.type} 
+                        onChange={e => handleMemberChange(index, 'type', e.target.value)}
+                        className="form-select"
+                        required
+                      >
+                        <option value="" disabled>Selecione...</option>
+                        {activeCategories.map(c => (
+                          <option key={c.id} value={c.id}>{c.label}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
