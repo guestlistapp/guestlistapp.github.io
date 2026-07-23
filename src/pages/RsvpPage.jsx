@@ -35,7 +35,9 @@ export default function RsvpPage() {
     fetchGroup();
   }, [slug]);
 
-  const handleSetStatus = async (guestId, newStatus) => {
+  const handleSetStatus = async (guestId, targetStatus) => {
+    const currentGuest = guests.find(g => g.id === guestId);
+    const newStatus = currentGuest?.status === targetStatus ? 'pending' : targetStatus;
     const originalGuests = [...guests];
     // Optimistic update
     setGuests(prev => prev.map(g => g.id === guestId ? { ...g, status: newStatus } : g));
