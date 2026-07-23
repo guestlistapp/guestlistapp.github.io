@@ -234,11 +234,54 @@ export default function RsvpPage() {
             )})}
           </div>
         </div>
+
+        {/* Rodapé com convite para criar evento */}
+        <footer style={{ 
+          marginTop: '2.5rem', 
+          textAlign: 'center' 
+        }}>
+          <a
+            href="https://guestlistapp.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rsvp-create-event-link"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.6rem 1.25rem',
+              borderRadius: '9999px',
+              background: 'rgba(15, 23, 42, 0.4)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              color: '#ffffff',
+              fontSize: '0.9rem',
+              fontWeight: 500,
+              textDecoration: 'none',
+              transition: 'all 0.25s ease',
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+            }}
+          >
+            <span>Clique aqui e crie o seu evento</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </footer>
       </div>
       <style>{`
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+        .rsvp-create-event-link:hover {
+          background: rgba(255, 255, 255, 0.25) !important;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+          color: #ffffff !important;
         }
       `}</style>
     </div>
